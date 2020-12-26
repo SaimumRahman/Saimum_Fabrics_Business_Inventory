@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/customername"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AddCustomers">
+    <TextView
+        android:id="@+id/contact_form_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="5dp"
+        android:text="Add Customer Details"
+        android:textColor="#F8F5F5"
+        android:textSize="40sp"
+        android:typeface="serif"
+        android:textAlignment="center"
+        />
+
+    <EditText
+        android:id="@+id/nameEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"
+        android:hint="Name"
+        android:textColorHint="#ffffff"
+        android:textColor="#F8F5F5"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/phoneEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#ffffff"
+        android:hint="Phone Number"
+        android:textColorHint="#ffffff"
+        android:textColor="#F8F5F5"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/shopNameEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"
+        android:hint="Shop Name"
+        android:textColorHint="#ffffff"
+        android:textColor="#F8F5F5"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#ffffff"
+        android:hint="Address"
+        android:textColorHint="#ffffff"
+        android:textColor="#F8F5F5"
+        android:fitsSystemWindows="true"
+        android:breakStrategy="balanced"
+        android:inputType="textMultiLine"
+        android:singleLine="false"
+        android:padding="5dp" />
+
+    <Button
+        android:id="@+id/submitBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@android:color/transparent"
+        android:elevation="4dp"
+        android:paddingLeft="70dp"
+        android:paddingRight="70dp"
+        android:text="Submit"
+        android:textColor="#fff" />
+
+</LinearLayout>

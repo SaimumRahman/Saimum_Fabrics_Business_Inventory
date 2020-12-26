@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculationActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/shopNametxtView"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="Phone Number"
+
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/shopNametxtView"
+        android:hint="Billing Amount"
+        android:layout_margin="20dp"
+        android:id="@+id/amountEditText"
+        android:textSize="10dp"
+        android:inputType="number"
+        />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amountEditText"
+        android:hint="Amount paid"
+        android:layout_margin="20dp"
+        android:id="@+id/amountPaidEditText"
+        android:textSize="10dp"
+        android:inputType="number"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/amountPaidEditText"
+        android:layout_margin="20dp"
+        android:text="Submit"
+        android:textColor="#090909"
+        android:textSize="20dp"
+        android:background="@android:color/transparent"
+        android:id="@+id/submitAmountbtn"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submitAmountbtn"
+        android:layout_margin="20dp"
+        android:text="Submit PAID"
+        android:textColor="#090909"
+        android:textSize="20dp"
+        android:background="@android:color/transparent"
+        android:id="@+id/submitPaidAmountbtn"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submitPaidAmountbtn"
+        android:layout_margin="20dp"
+        android:text="Show All Bills"
+        android:textColor="#090909"
+        android:textSize="20dp"
+        android:background="@android:color/transparent"
+        android:id="@+id/showAmountbtn"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/showAmountbtn"
+        android:layout_margin="20dp"
+        android:text="Show Paid Amounts"
+        android:textColor="#090909"
+        android:textSize="20dp"
+        android:background="@android:color/transparent"
+        android:id="@+id/showPaidAmountbtn"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/bakiBtn"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:text="All Billings"
+        android:textColor="#171616"
+        android:layout_below="@+id/showPaidAmountbtn"
+        />
+
+</RelativeLayout>
+
+</ScrollView>

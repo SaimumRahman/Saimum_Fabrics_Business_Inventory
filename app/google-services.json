@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1036882514172",
+    "project_id": "saimumfabrics",
+    "storage_bucket": "saimumfabrics.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036882514172:android:56bf36bffed2eaa2280779",
+        "android_client_info": {
+          "package_name": "com.example.groceryapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1036882514172-sq4a2d83h14v054e6290pe3eea1qu2cj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgB4i3Wpgl3ZAPFsMTszBgLsqqTTBlGcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1036882514172-sq4a2d83h14v054e6290pe3eea1qu2cj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
