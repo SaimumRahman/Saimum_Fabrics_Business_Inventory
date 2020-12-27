@@ -2,9 +2,13 @@ package com.example.groceryapplication;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -95,6 +99,25 @@ private String  saveCurrentDate,saveCurrentTime;
                 Intent newss=new Intent(CalculationActivity.this, ShowtotalsActivity.class);
                 newss.putExtra("totalBillPhn",uniquePhn);
                 startActivity(newss);
+            }
+        });
+        shopNametxtViews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callIntent=new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:"+uniquePhn));
+
+                if(ActivityCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+                    Toast.makeText(CalculationActivity.this,"Check Permission",Toast.LENGTH_LONG).show();
+                    ActivityCompat.requestPermissions(CalculationActivity.this,new String[]{Manifest.permission.CALL_PHONE},1);
+
+                }
+                else {
+
+                    startActivity(callIntent);
+
+                }
+
             }
         });
     }
