@@ -1,10 +1,12 @@
 package com.example.groceryapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,8 +34,8 @@ public class ShowPaidAmounts extends AppCompatActivity {
 private RecyclerView recyclerViewPaidLists;
 private TextView paidBillTotaltxts;
 RecyclerView.LayoutManager layoutManager;
-private String paidphn;
-private DatabaseReference databaseReferenceBillPaid;
+private String paidphn,billTime;
+private DatabaseReference databaseReferenceBillPaid,deleteRef;
     private Button searchBtnpaid;
     private String search_input_BillPaid;
     private EditText dateSearchpaid;
@@ -43,7 +45,7 @@ private DatabaseReference databaseReferenceBillPaid;
         setContentView(R.layout.activity_show_paid_amounts);
 
         paidphn=getIntent().getExtras().get("passPaid").toString();
-//        billTime=getIntent().getExtras().get("billsTime").toString();
+        billTime=getIntent().getExtras().get("billsTime").toString();
 
         searchBtnpaid=findViewById(R.id.search_paid_button);
         dateSearchpaid=findViewById(R.id.search_Paid_ET);
@@ -52,6 +54,7 @@ private DatabaseReference databaseReferenceBillPaid;
         layoutManager = new LinearLayoutManager(this);
         recyclerViewPaidLists.setLayoutManager(layoutManager);
 
+        deleteRef=FirebaseDatabase.getInstance().getReference().child("Paid").child(paidphn).child(billTime);
         databaseReferenceBillPaid = FirebaseDatabase.getInstance().getReference().child("Paid").child(paidphn);
         searchBtnpaid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +93,38 @@ private DatabaseReference databaseReferenceBillPaid;
 
                     holder.datePaid.setText(model.getAmount_Paid());
                     holder.amountPaid.setText(model.getDate());
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        CharSequence sequence[]=new CharSequence[]
+
+                                {
+                                        "Yes",
+                                        "No"
+                                };
+                        AlertDialog.Builder alert=new AlertDialog.Builder(ShowPaidAmounts.this);
+                        alert.setTitle("DO YOU WANT TO DELETE ?");
+                        alert.setItems(sequence, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(which==0){
+                                    deleteRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(ShowPaidAmounts.this, "The Amount is Deleted Successfully",Toast.LENGTH_LONG).show();
+                                        }
+                                    });
+                                }
+                                else if(which==1) {
+
+                                }
+
+                            }
+                        });
+                        alert.show();
+                    }
+                });
                 }
 
         };

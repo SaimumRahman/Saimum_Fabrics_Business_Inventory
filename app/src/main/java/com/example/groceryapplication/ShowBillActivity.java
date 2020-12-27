@@ -1,10 +1,12 @@
 package com.example.groceryapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,13 +31,13 @@ import java.nio.file.FileStore;
 import java.util.HashMap;
 
 public class ShowBillActivity extends AppCompatActivity {
-    private String billPhn;
+    private String billPhn,timings;
     private TextView pleasetxtxs;
     private RecyclerView recyclerViewBillLists;
     RecyclerView.LayoutManager layoutManager;
     private EditText dateSearch;
     private DatabaseReference databaseReferenceBill;
-    private DatabaseReference databaseReferenceTotal;
+    private DatabaseReference databaseReferenceTotal,deleteReference;
     private Button searchBtn;
     private String search_input_Bill;
 
@@ -47,6 +49,8 @@ public class ShowBillActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_bill);
 
         billPhn = getIntent().getExtras().get("billsphn").toString();
+       timings=getIntent().getExtras().get("billsTimes").toString();
+       //Toast.makeText(getApplicationContext(),timings,Toast.LENGTH_LONG).show();
 
         pleasetxtxs=findViewById(R.id.pleasetxtx);
         searchBtn=findViewById(R.id.search_bill_button);
@@ -56,8 +60,11 @@ public class ShowBillActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerViewBillLists.setLayoutManager(layoutManager);
 
+
         databaseReferenceBill = FirebaseDatabase.getInstance().getReference().child("Bill").child(billPhn);
         databaseReferenceTotal=FirebaseDatabase.getInstance().getReference().child("Bill").child(billPhn);
+        deleteReference=FirebaseDatabase.getInstance().getReference().child("Bill").child(billPhn).child(timings);
+
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +105,36 @@ public class ShowBillActivity extends AppCompatActivity {
 
                     holder.dateView.setText(model.getDate());
                     holder.billingAmount.setText(model.getBill());
+
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            CharSequence charSequenceBill[]=new CharSequence[]{
+                                    "Yes","No"
+                            };
+                            AlertDialog.Builder alertsBill=new AlertDialog.Builder(ShowBillActivity.this);
+                            alertsBill.setTitle("DO YOU WANT TO DELETE THIS ENTRY ?");
+                            alertsBill.setItems(charSequenceBill, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    if(which==0){
+
+                                        deleteReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(ShowBillActivity.this,"DELETED",Toast.LENGTH_LONG).show();
+                                            }
+                                        });
+
+                                    }else if(which==1) {
+
+                                    }
+                                }
+                            });
+                            alertsBill.show();
+                        }
+                    });
+
 
             }
         };

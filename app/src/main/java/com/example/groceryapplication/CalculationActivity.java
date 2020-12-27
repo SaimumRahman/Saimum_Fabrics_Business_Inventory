@@ -73,7 +73,7 @@ private String  saveCurrentDate,saveCurrentTime;
             public void onClick(View v) {
                 Intent passPhntoshowbill=new Intent(getApplicationContext(),ShowBillActivity.class);
                 passPhntoshowbill.putExtra("billsphn",uniquePhn);
-                passPhntoshowbill.putExtra("billsTime",saveCurrentTime);
+                passPhntoshowbill.putExtra("billsTimes",saveCurrentTime);
                 startActivity(passPhntoshowbill);
             }
         });
@@ -156,6 +156,7 @@ private String  saveCurrentDate,saveCurrentTime;
                     if (task.isSuccessful()) {
                         amountEditTexts.setText("");
                         Toast.makeText(getApplicationContext(), "Bill Added Successfully", Toast.LENGTH_LONG).show();
+
                     } else {
                         Toast.makeText(getApplicationContext(), "Bill not Added", Toast.LENGTH_LONG).show();
                     }
