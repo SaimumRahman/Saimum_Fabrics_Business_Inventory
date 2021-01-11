@@ -1,6 +1,7 @@
 package com.example.groceryapplication;
 
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomerViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     public  TextView customerNames,phoneNumbers,shopNames,addresses;
+    public ImageButton deleteCustomerBtns,editCustomerBtns;
     public itemOnClickListener Listener;
 
     public CustomerViewHolder(@NonNull View itemView) {
@@ -19,6 +21,8 @@ public class CustomerViewHolder extends RecyclerView.ViewHolder implements View.
             phoneNumbers=itemView.findViewById(R.id.phoneNumber);
             shopNames=itemView.findViewById(R.id.shopName);
             addresses=itemView.findViewById(R.id.address);
+        deleteCustomerBtns=itemView.findViewById(R.id.deleteCustomerBtn);
+        editCustomerBtns=itemView.findViewById(R.id.editCustomerBtn);
 
     }
     public void setItemOnClickListener(itemOnClickListener itemOnClickListener){

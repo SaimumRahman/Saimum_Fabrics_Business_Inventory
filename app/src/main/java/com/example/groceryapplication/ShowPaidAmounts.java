@@ -45,7 +45,7 @@ private DatabaseReference databaseReferenceBillPaid,deleteRef;
         setContentView(R.layout.activity_show_paid_amounts);
 
         paidphn=getIntent().getExtras().get("passPaid").toString();
-        billTime=getIntent().getExtras().get("billsTime").toString();
+     // billTime=getIntent().getExtras().get("billsTime").toString();
 
         searchBtnpaid=findViewById(R.id.search_paid_button);
         dateSearchpaid=findViewById(R.id.search_Paid_ET);
@@ -54,7 +54,9 @@ private DatabaseReference databaseReferenceBillPaid,deleteRef;
         layoutManager = new LinearLayoutManager(this);
         recyclerViewPaidLists.setLayoutManager(layoutManager);
 
-        deleteRef=FirebaseDatabase.getInstance().getReference().child("Paid").child(paidphn).child(billTime);
+
+
+        deleteRef=FirebaseDatabase.getInstance().getReference().child("Paid").child(paidphn);
         databaseReferenceBillPaid = FirebaseDatabase.getInstance().getReference().child("Paid").child(paidphn);
         searchBtnpaid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +98,8 @@ private DatabaseReference databaseReferenceBillPaid,deleteRef;
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                       // String s=model.getTime();
+                       // Toast.makeText(ShowPaidAmounts.this, s,Toast.LENGTH_LONG).show();
                         CharSequence sequence[]=new CharSequence[]
 
                                 {
@@ -109,6 +112,7 @@ private DatabaseReference databaseReferenceBillPaid,deleteRef;
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if(which==0){
+
                                     deleteRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {

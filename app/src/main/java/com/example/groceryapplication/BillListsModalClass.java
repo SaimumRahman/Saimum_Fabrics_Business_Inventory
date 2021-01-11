@@ -2,7 +2,7 @@ package com.example.groceryapplication;
 
 public class BillListsModalClass {
 
-    String Bill,Date;
+    String Bill,Date,Time;
 
     public BillListsModalClass() {
     }
@@ -12,12 +12,14 @@ public class BillListsModalClass {
         return "BillListsModalClass{" +
                 "Bill='" + Bill + '\'' +
                 ", Date='" + Date + '\'' +
+                ", Time='" + Time + '\'' +
                 '}';
     }
 
-    public BillListsModalClass(String bill, String date) {
+    public BillListsModalClass(String bill, String date, String time) {
         Bill = bill;
         Date = date;
+        Time = time;
     }
 
     public String getBill() {
@@ -34,5 +36,13 @@ public class BillListsModalClass {
 
     public void setDate(String date) {
         Date = date;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 }

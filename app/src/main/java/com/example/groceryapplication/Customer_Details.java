@@ -1,28 +1,43 @@
 package com.example.groceryapplication;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.orhanobut.dialogplus.DialogPlus;
+import com.orhanobut.dialogplus.OnClickListener;
+import com.orhanobut.dialogplus.OnItemClickListener;
+import com.orhanobut.dialogplus.ViewHolder;
+
+import java.util.HashMap;
 
 public class Customer_Details extends AppCompatActivity {
 
     private RecyclerView recyclerViewCustomerLists;
     RecyclerView.LayoutManager layoutManager;
-    private DatabaseReference customerRef;
+    private DatabaseReference customerRef,customerDelRef,updateRef;
     private String search_input;
     private EditText search_input_text;
     private Button search_button;
@@ -43,6 +58,8 @@ public class Customer_Details extends AppCompatActivity {
         recyclerViewCustomerLists.setLayoutManager(layoutManager);
 
         customerRef=FirebaseDatabase.getInstance().getReference().child("Customer_Details");
+        customerDelRef=FirebaseDatabase.getInstance().getReference().child("Customer_Details");
+        updateRef=FirebaseDatabase.getInstance().getReference().child("Customer_Details");
 
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +100,83 @@ public class Customer_Details extends AppCompatActivity {
             }
         });
 
+        holder.deleteCustomerBtns.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    CharSequence[] charSequenceBill =new CharSequence[]{
+                            "Yes","No"
+                    };
+                    AlertDialog.Builder alertsBill=new AlertDialog.Builder(Customer_Details.this);
+                    alertsBill.setTitle("DO YOU WANT TO DELETE THIS ENTRY ?");
+                    alertsBill.setItems(charSequenceBill, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            if(which==0){
+
+                                customerDelRef.child(model.getPhone()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        Toast.makeText(Customer_Details.this,"DELETED",Toast.LENGTH_LONG).show();
+                                    }
+                                });
+
+                            }else if(which==1) {
+
+                            }
+                        }
+                    });
+                    alertsBill.show();
+                }
+                });
+        holder.editCustomerBtns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               final DialogPlus dialog = DialogPlus.newDialog(Customer_Details.this)
+                        .setGravity(Gravity.CENTER)
+                        .setMargin(50,0,0,50)
+                        .setContentHolder(new ViewHolder(R.layout.updatecustomerdetails))
+                        .setExpanded(false)  // This will enable the expand feature, (similar to android L share dialog)
+                        .create();
+                View view = (RelativeLayout)dialog.getHolderView();
+                EditText nameEditTextUpdates=(EditText) view.findViewById(R.id.nameEditTextUpdate);
+                EditText phnEditTextUpdates=(EditText) view.findViewById(R.id.phnEditTextUpdate);
+                EditText shopNameEditTextUpdates=(EditText) view.findViewById(R.id.shopNameEditTextUpdate);
+                EditText addressEditTextUpdates=(EditText) view.findViewById(R.id.addressEditTextUpdate);
+                Button updateButtons=(Button) view.findViewById(R.id.updateButton);
+
+                shopNameEditTextUpdates.setText(model.getShop_Name());
+                nameEditTextUpdates.setText(model.getName());
+                phnEditTextUpdates.setText(model.getPhone());
+                addressEditTextUpdates.setText(model.getAddress());
+                updateButtons.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        HashMap<String,Object>hasUpdate=new HashMap<>();
+                        hasUpdate.put("Address",addressEditTextUpdates.getText().toString());
+                        hasUpdate.put("Name",nameEditTextUpdates.getText().toString());
+                        hasUpdate.put("Phone",phnEditTextUpdates.getText().toString());
+                        hasUpdate.put("Shop_Name",shopNameEditTextUpdates.getText().toString());
+
+                        updateRef.updateChildren(hasUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                Toast.makeText(Customer_Details.this,"UPDATED",Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                        dialog.dismiss();
+                    }
+                });
+
+
+                dialog.show();
+
+            }
+        });
+
+
     }
 
     @NonNull
@@ -96,5 +190,10 @@ public class Customer_Details extends AppCompatActivity {
         recyclerViewCustomerLists.setAdapter(adapter);
         adapter.startListening();
 
+
+
 }
+
+
 }
+

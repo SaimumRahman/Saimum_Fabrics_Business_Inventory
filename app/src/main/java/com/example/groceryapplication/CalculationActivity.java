@@ -149,6 +149,7 @@ private String  saveCurrentDate,saveCurrentTime;
             final HashMap<String, Object> amountHash = new HashMap<>();
             amountHash.put("Bill", amounts);
             amountHash.put("Date", saveCurrentDate);
+            amountHash.put("Time", saveCurrentTime);
 
             amountRef.updateChildren(amountHash).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override
@@ -192,6 +193,7 @@ private String  saveCurrentDate,saveCurrentTime;
             final HashMap<String,Object>amountHash=new HashMap<>();
             amountHash.put("Amount_Paid",amountsPaid);
             amountHash.put("Date",saveCurrentDate);
+            amountHash.put("Time", saveCurrentTime);
 
             amountRef.updateChildren(amountHash).addOnCompleteListener(new OnCompleteListener<Void>() {
                 @Override

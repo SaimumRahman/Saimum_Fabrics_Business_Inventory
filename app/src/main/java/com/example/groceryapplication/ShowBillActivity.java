@@ -49,7 +49,7 @@ public class ShowBillActivity extends AppCompatActivity {
         setContentView(R.layout.activity_show_bill);
 
         billPhn = getIntent().getExtras().get("billsphn").toString();
-       timings=getIntent().getExtras().get("billsTimes").toString();
+//       timings=getIntent().getExtras().get("billsTimes").toString();
        //Toast.makeText(getApplicationContext(),timings,Toast.LENGTH_LONG).show();
 
         pleasetxtxs=findViewById(R.id.pleasetxtx);
@@ -63,7 +63,7 @@ public class ShowBillActivity extends AppCompatActivity {
 
         databaseReferenceBill = FirebaseDatabase.getInstance().getReference().child("Bill").child(billPhn);
         databaseReferenceTotal=FirebaseDatabase.getInstance().getReference().child("Bill").child(billPhn);
-        deleteReference=FirebaseDatabase.getInstance().getReference().child("Bill").child(billPhn).child(timings);
+        deleteReference=FirebaseDatabase.getInstance().getReference().child("Bill").child(billPhn);
 
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override

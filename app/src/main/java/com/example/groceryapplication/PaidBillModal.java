@@ -1,7 +1,7 @@
 package com.example.groceryapplication;
 
 public class PaidBillModal {
-    String Amount_Paid,Date;
+    String Amount_Paid,Date,Time;
 
     public PaidBillModal() {
     }
@@ -11,12 +11,8 @@ public class PaidBillModal {
         return "PaidBillModal{" +
                 "Amount_Paid='" + Amount_Paid + '\'' +
                 ", Date='" + Date + '\'' +
+                ", Time='" + Time + '\'' +
                 '}';
-    }
-
-    public PaidBillModal(String amount_Paid, String date) {
-        Amount_Paid = amount_Paid;
-        Date = date;
     }
 
     public String getAmount_Paid() {
@@ -33,5 +29,13 @@ public class PaidBillModal {
 
     public void setDate(String date) {
         Date = date;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 }
