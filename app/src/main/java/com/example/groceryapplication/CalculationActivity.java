@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,8 +38,9 @@ public class CalculationActivity extends AppCompatActivity {
 private String uniquePhn;
 private TextView shopNametxtViews;
 private EditText amountEditTexts,amountPaidEditTexts;
+private CheckBox mohajonCalculationsCheckBoxs;
 private Button submitAmountbtns,showAmountbtns,submitPaidAmountbtns,showPaidAmountbtns,bakiBtns;
-private String  saveCurrentDate,saveCurrentTime;
+private String  saveCurrentDate,saveCurrentTime, saveCurrentTimeM,saveCurrentDateM;
 
 
 
@@ -56,7 +58,7 @@ private String  saveCurrentDate,saveCurrentTime;
         amountEditTexts=findViewById(R.id.amountEditText);
         amountPaidEditTexts=findViewById(R.id.amountPaidEditText);
         shopNametxtViews.setText(uniquePhn);
-
+        mohajonCalculationsCheckBoxs=findViewById(R.id.mohajonCalculationsCheckBox);
 
         showAmountbtns=findViewById(R.id.showAmountbtn);
         submitPaidAmountbtns=findViewById(R.id.submitPaidAmountbtn);
@@ -213,7 +215,50 @@ private String  saveCurrentDate,saveCurrentTime;
         }
 
     }
-
+//private void AmountEntryM(){
+//
+//    Calendar callForDateM=Calendar.getInstance();
+//
+//    SimpleDateFormat currentDate=new SimpleDateFormat("MM dd, yyyy");
+//     saveCurrentDateM = currentDate.format(callForDateM.getTime());
+//
+//    SimpleDateFormat currentTime=new SimpleDateFormat("HH:mm:ss a");
+//     saveCurrentTimeM = currentTime.format(callForDateM.getTime());
+//
+//
+//    String  amountsM=amountEditTexts.getText().toString();
+//
+//    if(TextUtils.isEmpty(amountsM)){
+//        Toast.makeText(this, "Please Amount", Toast.LENGTH_SHORT).show();
+//    }
+//    else {
+//
+//        final DatabaseReference amountRef;
+//        amountRef = FirebaseDatabase.getInstance().getReference().child("Bill_Mohajon").child(uniquePhn).child(saveCurrentTime);
+//
+//        final HashMap<String, Object> amountHash = new HashMap<>();
+//        amountHash.put("Bill", amounts);
+//        amountHash.put("Date", saveCurrentDate);
+//        amountHash.put("Time", saveCurrentTime);
+//
+//        amountRef.updateChildren(amountHash).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    amountEditTexts.setText("");
+//                    Toast.makeText(getApplicationContext(), "Bill Added Successfully", Toast.LENGTH_LONG).show();
+//
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Bill not Added", Toast.LENGTH_LONG).show();
+//                }
+//            }
+//        });
+//
+//
+//    }
+//
+//
+//}
 
 
     }

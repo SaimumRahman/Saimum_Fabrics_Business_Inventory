@@ -9,6 +9,14 @@
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+  <CheckBox
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/mohajonCalculationsCheckBox"
+      android:text="MOHAJON"
+      android:textSize="30dp"
+      android:layout_centerHorizontal="true"
+      />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -17,7 +25,7 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="20dp"
         android:text="Phone Number"
-
+        android:layout_below="@+id/mohajonCalculationsCheckBox"
         />
 
     <EditText
