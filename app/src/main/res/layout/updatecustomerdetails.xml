@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:id="@+id/nameEditTextUpdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"
+        android:hint="Name"
+        android:textColorHint="#171717"
+        android:textColor="#171717"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/phnEditTextUpdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameEditTextUpdate"
+        android:backgroundTint="#ffffff"
+        android:hint="Phone Number"
+        android:inputType="phone"
+        android:textColor="#171717"
+        android:textColorHint="#171717" />
+    <EditText
+        android:id="@+id/shopNameEditTextUpdate"
+        android:layout_below="@+id/phnEditTextUpdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"
+        android:hint="Shop Name"
+        android:textColorHint="#171717"
+        android:textColor="#171717"
+        android:inputType="textPersonName" />
+    <EditText
+        android:id="@+id/addressEditTextUpdate"
+        android:layout_below="@+id/shopNameEditTextUpdate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ffffff"
+        android:hint="Address"
+        android:textColorHint="#171717"
+        android:textColor="#171717"
+        android:inputType="textPersonName" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateButton"
+        android:text="UPDATE"
+        android:layout_below="@+id/addressEditTextUpdate"
+        android:layout_centerHorizontal="true"
+        android:textColor="#171717"
+        />
+</RelativeLayout>
