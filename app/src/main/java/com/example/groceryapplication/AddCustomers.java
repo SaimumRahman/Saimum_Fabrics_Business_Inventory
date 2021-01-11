@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,6 +27,7 @@ import java.util.HashMap;
 public class AddCustomers extends AppCompatActivity {
 private EditText nameEditTexts,phoneEditTexts,shopNameEditTexts,addressEditTexts;
 private Button submitBtns;
+private CheckBox mohajonCheckBoxs;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,17 +38,25 @@ private Button submitBtns;
         shopNameEditTexts=findViewById(R.id.shopNameEditText);
         addressEditTexts=findViewById(R.id.addressEditText);
         submitBtns=findViewById(R.id.submitBtn);
+        mohajonCheckBoxs=findViewById(R.id.mohajonCheckBox);
+
 
         submitBtns.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CustomerInput();
+               if(mohajonCheckBoxs.isChecked()){
+                   AddMohajon();
+               }
+               else {
+                   CustomerInput();
+               }
+
             }
         });
 
     }
 
-    private void CustomerInput() {
+       private void CustomerInput() {
 
     String name=nameEditTexts.getText().toString();
     String phone=phoneEditTexts.getText().toString();
@@ -118,6 +128,74 @@ private Button submitBtns;
 
             }
         });
+
+    }
+    private void AddMohajon() {
+
+        String nameM=nameEditTexts.getText().toString();
+        String phoneM=phoneEditTexts.getText().toString();
+        String shopNameM=shopNameEditTexts.getText().toString();
+        String addressM=addressEditTexts.getText().toString();
+
+        if(TextUtils.isEmpty(nameM)){
+            Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
+        }
+        else   if (TextUtils.isEmpty(phoneM)){
+            Toast.makeText(this, "Please Enter Your Phone Number", Toast.LENGTH_SHORT).show();
+        }
+        else   if (TextUtils.isEmpty(shopNameM)){
+            Toast.makeText(this, "Please Enter Your Shop Name", Toast.LENGTH_SHORT).show();
+        }
+        else   if (TextUtils.isEmpty(addressM)){
+            Toast.makeText(this, "Please Enter Your Address", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            final DatabaseReference rootRef;
+            rootRef= FirebaseDatabase.getInstance().getReference();
+
+            rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                    if(!snapshot.child("Mohajon_Details").child("Phone").exists()){
+
+                        HashMap<String,Object>customerData=new HashMap<>();
+                        customerData.put("Name",nameM);
+                        customerData.put("Phone",phoneM);
+                        customerData.put("Shop_Name",shopNameM);
+                        customerData.put("Address",addressM);
+
+                        rootRef.child("Mohajon_Details").child(phoneM).updateChildren(customerData).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+
+                                if(task.isSuccessful()){
+                                    Toast.makeText(AddCustomers.this,"Congratulations Mohajon Added Successfully", Toast.LENGTH_SHORT).show();
+
+
+                                }
+                                else {
+                                    Toast.makeText(AddCustomers.this,"Network Error Please try Again Letter or Check your Internet", Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
+
+                    }
+                    else{
+
+                        Toast.makeText(AddCustomers.this,"This"+phoneM+"already Exists", Toast.LENGTH_SHORT).show();
+
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
 
     }
 }

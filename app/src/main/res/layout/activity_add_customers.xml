@@ -82,5 +82,12 @@
         android:paddingRight="70dp"
         android:text="Submit"
         android:textColor="#fff" />
-
+<CheckBox
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="MOHAJON"
+    android:textSize="30dp"
+    android:textColor="#F8F5F5"
+    android:id="@+id/mohajonCheckBox"
+    />
 </LinearLayout>
