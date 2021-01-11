@@ -118,8 +118,8 @@ public class ShowBillActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
                                     if(which==0){
-
-                                        deleteReference.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        String si=model.getTime();
+                                        deleteReference.child(si).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 Toast.makeText(ShowBillActivity.this,"DELETED",Toast.LENGTH_LONG).show();

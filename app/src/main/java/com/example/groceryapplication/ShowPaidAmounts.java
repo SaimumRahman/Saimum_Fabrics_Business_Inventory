@@ -112,8 +112,8 @@ private DatabaseReference databaseReferenceBillPaid,deleteRef;
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 if(which==0){
-
-                                    deleteRef.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    String s=model.getTime();
+                                    deleteRef.child(s).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             Toast.makeText(ShowPaidAmounts.this, "The Amount is Deleted Successfully",Toast.LENGTH_LONG).show();
