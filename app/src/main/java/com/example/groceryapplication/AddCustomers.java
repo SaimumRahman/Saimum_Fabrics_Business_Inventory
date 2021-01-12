@@ -50,6 +50,8 @@ private CheckBox mohajonCheckBoxs;
                else {
                    CustomerInput();
                }
+                PhoneBook();
+
 
             }
         });
@@ -195,6 +197,61 @@ private CheckBox mohajonCheckBoxs;
 
                 }
             });
+        }
+
+    }
+
+    private void  PhoneBook(){
+
+        String namePhn=nameEditTexts.getText().toString();
+        String numberPhn=phoneEditTexts.getText().toString();
+
+        if(TextUtils.isEmpty(namePhn)){
+            Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
+        }
+        else   if (TextUtils.isEmpty(numberPhn)){
+            Toast.makeText(this, "Please Enter Your Phone Number", Toast.LENGTH_SHORT).show();
+        }else {
+
+        final DatabaseReference databaseReferencePhnBook= FirebaseDatabase.getInstance().getReference();
+        databaseReferencePhnBook.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(!snapshot.child("Phone_Book").child(numberPhn).exists()){
+                    HashMap<String,Object>phoneNumberEnrty=new HashMap<>();
+                    phoneNumberEnrty.put("Name",namePhn.toLowerCase());
+                    phoneNumberEnrty.put("Phone",numberPhn);
+
+                    databaseReferencePhnBook.child("Phone_Book").child(numberPhn).updateChildren(phoneNumberEnrty).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(AddCustomers.this,"Congratulations Contact Added Successfully", Toast.LENGTH_SHORT).show();
+
+
+                            }
+                            else {
+                                Toast.makeText(AddCustomers.this,"Network Error Please try Again Letter or Check your Internet", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+
+                }
+                else{
+
+                    Toast.makeText(AddCustomers.this,"This"+numberPhn+"already Exists", Toast.LENGTH_SHORT).show();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
         }
 
     }

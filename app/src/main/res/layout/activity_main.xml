@@ -130,9 +130,97 @@
 
                 </com.google.android.material.card.MaterialCardView>
 
+
+            </LinearLayout>      <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp"
+                >
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/contactbook"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/phoneBookImage"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contacts"
+                            android:textSize="16sp"
+                            android:layout_below="@+id/phoneBookImage"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/phoneBookBtn"
+                            android:background="@android:color/transparent"
+                            />
+                    </RelativeLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/reminder"
+                            android:layout_centerInParent="true"
+                            android:id="@+id/ReminderImage"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Reminder"
+                            android:textSize="16sp"
+                            android:layout_below="@+id/ReminderImage"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            />
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:id="@+id/reminderBtn"
+                            android:background="@android:color/transparent"
+                            />
+                    </RelativeLayout>
+
+
+                </com.google.android.material.card.MaterialCardView>
+
+
             </LinearLayout>
 
+
         </LinearLayout>
+
 
     </RelativeLayout>
     </LinearLayout>

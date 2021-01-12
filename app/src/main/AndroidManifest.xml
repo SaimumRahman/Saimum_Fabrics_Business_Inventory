@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GroceryApplication">
-        <activity android:name="Mohajon.ShowTotalMohajonActivity"></activity>
+        <activity android:name="PhoneBook.PhoneBookActivity"></activity>
+        <activity android:name="Mohajon.ShowTotalMohajonActivity" />
         <activity android:name="Mohajon.ShowPaidAmountMohajonActivity" />
         <activity android:name="Mohajon.ShowBillMohajonActivity" />
         <activity android:name="Mohajon.MohajonActivityCalculation" />

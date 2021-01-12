@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:id="@+id/oka1"
+    android:layout_margin="15dp"
+    >
+    <TextView
+        android:id="@+id/nameContactstxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberContactstxt"
+        android:text="Number"
+        android:textSize="20dp"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/nameContactstxt"
+        />
+
+</RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toEndOf="@+id/oka1"
+        android:layout_margin="15dp"
+        >
+        <ImageButton
+            android:id="@+id/phoncallContactstxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/phonecall"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/messageContactstxt"
+            android:src="@drawable/message"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/phoncallContactstxt"
+            />
+
+    </RelativeLayout>
+</RelativeLayout>

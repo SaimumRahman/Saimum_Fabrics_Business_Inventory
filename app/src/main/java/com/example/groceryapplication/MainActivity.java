@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import PhoneBook.PhoneBookActivity;
+
  public class MainActivity extends AppCompatActivity {
-private Button addCustomerBtns,customerListBtns;
+private Button addCustomerBtns,customerListBtns,contactsBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +19,7 @@ private Button addCustomerBtns,customerListBtns;
 
         addCustomerBtns=findViewById(R.id.addCustomerBtn);
         customerListBtns=findViewById(R.id.customerListBtn);
+        contactsBtn=findViewById(R.id.phoneBookBtn);
 
         addCustomerBtns.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,6 +33,13 @@ private Button addCustomerBtns,customerListBtns;
             public void onClick(View v) {
                 Intent intentCustomerLists=new Intent(getApplicationContext(),Customer_Details.class);
                 startActivity(intentCustomerLists);
+            }
+        });
+        contactsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentAddCustomer=new Intent(getApplicationContext(), PhoneBookActivity.class);
+                startActivity(intentAddCustomer);
             }
         });
 
