@@ -95,7 +95,7 @@ private CheckBox mohajonCheckBoxs;
                     HashMap<String,Object>customerData=new HashMap<>();
                     customerData.put("Name",name);
                     customerData.put("Phone",phone);
-                    customerData.put("Shop_Name",shopName);
+                    customerData.put("Shop_Name",shopName.toLowerCase());
                     customerData.put("Address",address);
 
                     rootRef.child("Customer_Details").child(phone).updateChildren(customerData).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -162,7 +162,7 @@ private CheckBox mohajonCheckBoxs;
                         HashMap<String,Object>customerData=new HashMap<>();
                         customerData.put("Name",nameM);
                         customerData.put("Phone",phoneM);
-                        customerData.put("Shop_Name",shopNameM);
+                        customerData.put("Shop_Name",shopNameM.toLowerCase());
                         customerData.put("Address",addressM);
 
                         rootRef.child("Mohajon_Details").child(phoneM).updateChildren(customerData).addOnCompleteListener(new OnCompleteListener<Void>() {

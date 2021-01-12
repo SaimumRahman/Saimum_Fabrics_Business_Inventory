@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Mohajon.MohajonActivityCalculation">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/shopNametxtViewM"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:text="Phone Number"
+
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/shopNametxtViewM"
+            android:hint="Billing Amount Mohajon"
+            android:layout_margin="20dp"
+            android:id="@+id/amountEditTextM"
+            android:textSize="10dp"
+            android:inputType="number"
+
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/amountEditTextM"
+            android:hint="Amount paid Mohajon"
+            android:layout_margin="20dp"
+            android:id="@+id/amountPaidEditTextM"
+            android:textSize="10dp"
+            android:inputType="number"
+
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/amountPaidEditTextM"
+            android:layout_margin="20dp"
+            android:text="Submit Mohajon"
+            android:textColor="#090909"
+            android:textSize="20dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/submitAmountbtnM"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/submitAmountbtnM"
+            android:layout_margin="20dp"
+            android:text="Submit PAID Mohajon"
+            android:textColor="#090909"
+            android:textSize="20dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/submitPaidAmountbtnM"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/submitPaidAmountbtnM"
+            android:layout_margin="20dp"
+            android:text="Show All Bills Mohajon"
+            android:textColor="#090909"
+            android:textSize="20dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/showAmountbtnM"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/showAmountbtnM"
+            android:layout_margin="20dp"
+            android:text="Show Paid Amounts Mohajon"
+            android:textColor="#090909"
+            android:textSize="20dp"
+            android:background="@android:color/transparent"
+            android:id="@+id/showPaidAmountbtnM"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:id="@+id/bakiBtnM"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:text="All Billings Mohajon"
+            android:textColor="#171616"
+            android:layout_below="@+id/showPaidAmountbtnM"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

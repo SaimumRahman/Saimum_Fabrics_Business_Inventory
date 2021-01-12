@@ -3,7 +3,7 @@
     package="com.example.groceryapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GroceryApplication">
-        <activity android:name=".ShowtotalsActivity"></activity>
+        <activity android:name="Mohajon.ShowTotalMohajonActivity"></activity>
+        <activity android:name="Mohajon.ShowPaidAmountMohajonActivity" />
+        <activity android:name="Mohajon.ShowBillMohajonActivity" />
+        <activity android:name="Mohajon.MohajonActivityCalculation" />
+        <activity android:name="Mohajon.MohajonActivity" />
+        <activity android:name=".ShowtotalsActivity" />
         <activity android:name=".ShowPaidAmounts" />
         <activity android:name=".ShowBillActivity" />
         <activity android:name=".CalculationActivity" />

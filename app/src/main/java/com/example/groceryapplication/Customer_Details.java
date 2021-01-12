@@ -35,6 +35,8 @@ import com.orhanobut.dialogplus.ViewHolder;
 
 import java.util.HashMap;
 
+import Mohajon.MohajonActivityCalculation;
+
 public class Customer_Details extends AppCompatActivity {
 
     private RecyclerView recyclerViewCustomerLists;
@@ -125,9 +127,13 @@ public class Customer_Details extends AppCompatActivity {
                     holder.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Intent intentnumberpass=new Intent(Customer_Details.this,CalculationActivity.class);
-                            intentnumberpass.putExtra("phonepass",model.getPhone());
-                            startActivity(intentnumberpass);
+
+
+                                Intent intentnumberpass=new Intent(Customer_Details.this,CalculationActivity.class);
+                                intentnumberpass.putExtra("phonepass",model.getPhone());
+                                startActivity(intentnumberpass);
+                                finish();
+
                         }
                     });
 
@@ -241,9 +247,11 @@ private void MojonDetails(){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intentnumberpass=new Intent(Customer_Details.this,CalculationActivity.class);
+                    Intent intentnumberpass=new Intent(Customer_Details.this, MohajonActivityCalculation.class);
                     intentnumberpass.putExtra("phonepass",model.getPhone());
                     startActivity(intentnumberpass);
+                    finish();
+
                 }
             });
 

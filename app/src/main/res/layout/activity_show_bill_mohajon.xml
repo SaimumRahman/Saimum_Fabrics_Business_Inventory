@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Customer_Details">
+    tools:context="Mohajon.ShowBillMohajonActivity">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -24,15 +24,15 @@
             />
 
         <EditText
-            android:id="@+id/search_product_name"
+            android:id="@+id/search_Bill_ETM"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginRight="10dp"
-            android:hint="Products Names"
-            android:textColorHint="@android:color/white"
+            android:hint="Dates"
+            android:textColorHint="@color/black"
             android:textSize="18dp"
             android:textStyle="bold"
             android:layout_toRightOf="@+id/search_icon"
@@ -42,8 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@+id/search_product_name"
-            android:id="@+id/search_button"
+            android:layout_toRightOf="@+id/search_Bill_ETM"
+            android:id="@+id/search_bill_buttonM"
             android:text="Search"
             android:textColor="@color/black"
 
@@ -51,22 +51,24 @@
             android:textSize="16dp"
             />
     </RelativeLayout>
-    <CheckBox
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/checkboxMohajonAllDetails"
-        android:layout_below="@+id/r5"
-        android:text="Mohajon"
-        android:textSize="30dp"
+        android:id="@+id/pleasetxtxM"
+        android:textSize="10dp"
         android:layout_centerHorizontal="true"
-        android:checked="false"
+        android:textColor="#750303"
+        android:layout_margin="10dp"
+        android:layout_below="@+id/r5"
         />
-<androidx.recyclerview.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/recyclerViewCustomerList"
-    android:layout_below="@+id/checkboxMohajonAllDetails"
-    >
 
-</androidx.recyclerview.widget.RecyclerView>
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerViewBillListM"
+        android:layout_below="@+id/pleasetxtxM"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </RelativeLayout>

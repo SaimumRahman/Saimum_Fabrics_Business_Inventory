@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Mohajon.ShowTotalMohajonActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/r15"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:text="Total Bill"
+            android:textColor="#1B1A1A"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/billLeftTvM"
+            android:textSize="30dp"
+            android:text="Okay"
+            android:textColor="#1B1A1A"
+            android:layout_margin="50dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@+id/r15"
+        android:id="@+id/r15s"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="20dp"
+            android:text="Total Paid"
+            android:textColor="#1B1A1A"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/billLeftPaidM"
+            android:textSize="30dp"
+            android:text="Okay"
+            android:textColor="#1B1A1A"
+            android:layout_margin="50dp"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+
+            />
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:text="Total Paid"
+        android:textColor="#1B1A1A"
+        android:layout_margin="50dp"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:id="@+id/billLefttobepaidM"
+        android:layout_below="@+id/r15s"
+        />
+</RelativeLayout>
