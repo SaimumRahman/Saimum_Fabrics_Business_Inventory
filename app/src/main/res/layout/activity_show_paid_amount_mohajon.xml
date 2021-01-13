@@ -18,7 +18,7 @@
         <ImageView
             android:layout_width="44dp"
             android:layout_height="34dp"
-            android:src="@drawable/search"
+            app:srcCompat="@drawable/search"
             android:layout_margin="10dp"
             android:id="@+id/search_icon"
             />

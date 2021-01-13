@@ -32,7 +32,7 @@
         <ImageView
             android:layout_width="90dp"
             android:layout_height="90dp"
-            android:src="@drawable/logosaimum"
+            app:srcCompat="@drawable/logosaimum"
             android:layout_gravity="center"
             />
 
@@ -67,7 +67,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/custoemr"
+                            app:srcCompat="@drawable/custoemr"
                             android:layout_centerInParent="true"
                             android:id="@+id/collectionMoneyImage"
                             />
@@ -105,7 +105,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/customerlists"
+                            app:srcCompat="@drawable/customerlists"
                             android:layout_centerInParent="true"
                             android:id="@+id/collectionMoneylistImage"
                             />
@@ -152,7 +152,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/contactbook"
+                            app:srcCompat="@drawable/contactbook"
                             android:layout_centerInParent="true"
                             android:id="@+id/phoneBookImage"
                             />
@@ -190,7 +190,7 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/reminder"
+                            app:srcCompat="@drawable/reminder"
                             android:layout_centerInParent="true"
                             android:id="@+id/ReminderImage"
                             />

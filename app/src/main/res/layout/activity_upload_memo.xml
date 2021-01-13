@@ -1,0 +1,36 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="UploadImage.UploadMemo">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:id="@+id/select_memo_image"
+            android:layout_width="350dp"
+            android:layout_height="300dp"
+            android:cropToPadding="false"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/select_product_image"
+
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/add_memoBtn"
+            android:layout_below="@+id/select_memo_image"
+            android:textSize="20dp"
+            android:text="Upload"
+            android:textColor="@android:color/black"
+            android:layout_margin="20dp"
+            />
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -36,11 +36,13 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Objects;
 
+import UploadImage.UploadMemo;
+
 public class CalculationActivity extends AppCompatActivity {
 private String uniquePhn;
 private TextView shopNametxtViews;
 private EditText amountEditTexts,amountPaidEditTexts;
-private Button submitAmountbtns,showAmountbtns,submitPaidAmountbtns,showPaidAmountbtns,bakiBtns;
+private Button submitAmountbtns,showAmountbtns,submitPaidAmountbtns,showPaidAmountbtns,bakiBtns,imageUploadbtns;
 private String  saveCurrentDate,saveCurrentTime;
 
 
@@ -64,6 +66,7 @@ private String  saveCurrentDate,saveCurrentTime;
         showAmountbtns=findViewById(R.id.showAmountbtn);
         submitPaidAmountbtns=findViewById(R.id.submitPaidAmountbtn);
         showPaidAmountbtns=findViewById(R.id.showPaidAmountbtn);
+        imageUploadbtns=findViewById(R.id.imageUploadbtn);
 
         submitAmountbtns.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,6 +128,15 @@ private String  saveCurrentDate,saveCurrentTime;
 
                 }
 
+            }
+        });
+
+        imageUploadbtns.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent newss=new Intent(CalculationActivity.this, UploadMemo.class);
+                newss.putExtra("totalBillPhn",uniquePhn);
+                startActivity(newss);
             }
         });
 
