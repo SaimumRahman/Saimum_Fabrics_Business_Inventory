@@ -61,6 +61,8 @@ public class PhoneBookActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 contacnNAme=  search_contacts_namePhns.getText().toString();
+
+                onStart();
             }
         });
 
