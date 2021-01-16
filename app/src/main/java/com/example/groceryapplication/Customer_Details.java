@@ -196,7 +196,7 @@ public class Customer_Details extends AppCompatActivity {
                                     hasUpdate.put("Phone",phnEditTextUpdates.getText().toString());
                                     hasUpdate.put("Shop_Name",shopNameEditTextUpdates.getText().toString());
 
-                                    updateRef.updateChildren(hasUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    updateRef.child(model.getPhone()).updateChildren(hasUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             Toast.makeText(Customer_Details.this,"UPDATED",Toast.LENGTH_LONG).show();
@@ -314,7 +314,7 @@ private void MojonDetails(){
                             hasUpdate.put("Phone",phnEditTextUpdates.getText().toString());
                             hasUpdate.put("Shop_Name",shopNameEditTextUpdates.getText().toString());
 
-                            mohajonUpdateRef.updateChildren(hasUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
+                            mohajonUpdateRef.child(model.getPhone()).updateChildren(hasUpdate).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     Toast.makeText(Customer_Details.this,"UPDATED",Toast.LENGTH_LONG).show();
