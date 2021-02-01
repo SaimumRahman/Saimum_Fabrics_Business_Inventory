@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.example.Business_Invebtory.Activities.MainActivity">
 
    <ScrollView
        android:layout_width="fill_parent"
@@ -190,14 +190,14 @@
                         <ImageView
                             android:layout_width="50dp"
                             android:layout_height="50dp"
-                            android:src="@drawable/reminder"
+                            android:src="@drawable/cashmemo"
                             android:layout_centerInParent="true"
                             android:id="@+id/ReminderImage"
                             />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Reminder"
+                            android:text="Cash Memos"
                             android:textSize="16sp"
                             android:layout_below="@+id/ReminderImage"
                             android:layout_centerHorizontal="true"
@@ -207,7 +207,7 @@
                         <Button
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/reminderBtn"
+                            android:id="@+id/cashMemoBtn"
                             android:background="@android:color/transparent"
                             />
                     </RelativeLayout>

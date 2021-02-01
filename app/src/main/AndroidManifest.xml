@@ -13,25 +13,23 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GroceryApplication"
-        >
-
-
-        <activity android:name="UploadImage.UploadMemo"></activity>
-        <activity android:name="PhoneBook.PhoneBookActivity" />
-        <activity android:name="Mohajon.ShowTotalMohajonActivity" />
-        <activity android:name="Mohajon.ShowPaidAmountMohajonActivity" />
-        <activity android:name="Mohajon.ShowBillMohajonActivity" />
-        <activity android:name="Mohajon.MohajonActivityCalculation" />
-
-        <activity android:name=".ShowtotalsActivity" />
-        <activity android:name=".ShowPaidAmounts" />
-        <activity android:name=".ShowBillActivity" />
-        <activity android:name=".CalculationActivity" />
-        <activity android:name=".Customer_Details" />
-        <activity android:name=".AddCustomers" />
-        <activity android:name=".SplashActivity" />
-        <activity android:name=".MainActivity">
+        android:theme="@style/Theme.GroceryApplication">
+        <activity android:name="com.example.Business_Invebtory.Activities.ImageFullView"></activity>
+        <activity android:name="com.example.Business_Invebtory.Activities.DisplayMemoActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.UploadMemo" />
+        <activity android:name="com.example.Business_Invebtory.Activities.PhoneBookActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.ShowTotalMohajonActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.ShowPaidAmountMohajonActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.ShowBillMohajonActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.MohajonActivityCalculation" />
+        <activity android:name="com.example.Business_Invebtory.Activities.ShowtotalsActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.ShowPaidAmounts" />
+        <activity android:name="com.example.Business_Invebtory.Activities.ShowBillActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.CalculationActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.Customer_Details" />
+        <activity android:name="com.example.Business_Invebtory.Activities.AddCustomers" />
+        <activity android:name="com.example.Business_Invebtory.Activities.SplashActivity" />
+        <activity android:name="com.example.Business_Invebtory.Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

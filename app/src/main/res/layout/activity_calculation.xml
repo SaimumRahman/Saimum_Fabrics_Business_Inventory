@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CalculationActivity">
+    tools:context="com.example.Business_Invebtory.Activities.CalculationActivity">
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -100,17 +100,7 @@
         android:textColor="#171616"
         android:layout_below="@+id/showPaidAmountbtn"
         />
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bakiBtn"
-        android:layout_margin="20dp"
-        android:text="Upload Image"
-        android:textColor="#090909"
-        android:textSize="20dp"
-        android:background="@android:color/transparent"
-        android:id="@+id/imageUploadbtn"
-        />
+
 </RelativeLayout>
 
 </ScrollView>

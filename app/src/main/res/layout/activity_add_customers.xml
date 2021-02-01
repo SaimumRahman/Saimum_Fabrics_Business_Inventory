@@ -8,7 +8,7 @@
     android:background="@drawable/customername"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".AddCustomers">
+    tools:context="com.example.Business_Invebtory.Activities.AddCustomers">
     <TextView
         android:id="@+id/contact_form_title"
         android:layout_width="wrap_content"

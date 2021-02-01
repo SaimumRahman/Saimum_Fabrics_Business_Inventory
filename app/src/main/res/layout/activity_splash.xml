@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/splasha"
-    tools:context=".SplashActivity"
+    tools:context="com.example.Business_Invebtory.Activities.SplashActivity"
     android:fitsSystemWindows="true"
     >
 
