@@ -1,4 +1,4 @@
-package com.example.Business_Invebtory.Activities;
+        package com.example.Business_Invebtory.Activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.groceryapplication.R;
+import com.example.groceryapplication.databinding.ActivityAddCustomersBinding;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -23,26 +24,23 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.HashMap;
 
 public class AddCustomers extends AppCompatActivity {
-private EditText nameEditTexts,phoneEditTexts,shopNameEditTexts,addressEditTexts;
-private Button submitBtns;
-private CheckBox mohajonCheckBoxs;
+
+ActivityAddCustomersBinding addCustomersBinding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_customers);
 
-        nameEditTexts=findViewById(R.id.nameEditText);
-        phoneEditTexts=findViewById(R.id.phoneEditText);
-        shopNameEditTexts=findViewById(R.id.shopNameEditText);
-        addressEditTexts=findViewById(R.id.addressEditText);
-        submitBtns=findViewById(R.id.submitBtn);
-        mohajonCheckBoxs=findViewById(R.id.mohajonCheckBox);
+        addCustomersBinding=ActivityAddCustomersBinding.inflate(getLayoutInflater());
+        View viewAddCustomer=addCustomersBinding.getRoot();
+        setContentView(viewAddCustomer);
 
 
-        submitBtns.setOnClickListener(new View.OnClickListener() {
+
+        addCustomersBinding.submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               if(mohajonCheckBoxs.isChecked()){
+               if(addCustomersBinding.mohajonCheckBox.isChecked()){
                    AddMohajon();
                }
                else {
@@ -58,10 +56,10 @@ private CheckBox mohajonCheckBoxs;
 
        private void CustomerInput() {
 
-    String name=nameEditTexts.getText().toString();
-    String phone=phoneEditTexts.getText().toString();
-    String shopName=shopNameEditTexts.getText().toString();
-    String address=addressEditTexts.getText().toString();
+    String name=addCustomersBinding.nameEditText.getText().toString();
+    String phone=addCustomersBinding.phoneEditText.getText().toString();
+    String shopName=addCustomersBinding.shopNameEditText.getText().toString();
+    String address=addCustomersBinding.addressEditText.getText().toString();
 
         if(TextUtils.isEmpty(name)){
             Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
@@ -132,10 +130,10 @@ private CheckBox mohajonCheckBoxs;
     }
     private void AddMohajon() {
 
-        String nameM=nameEditTexts.getText().toString();
-        String phoneM=phoneEditTexts.getText().toString();
-        String shopNameM=shopNameEditTexts.getText().toString();
-        String addressM=addressEditTexts.getText().toString();
+        String nameM=addCustomersBinding.nameEditText.getText().toString();
+        String phoneM=addCustomersBinding.phoneEditText.getText().toString();
+        String shopNameM=addCustomersBinding.shopNameEditText.getText().toString();
+        String addressM=addCustomersBinding.addressEditText.getText().toString();
 
         if(TextUtils.isEmpty(nameM)){
             Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();
@@ -201,8 +199,8 @@ private CheckBox mohajonCheckBoxs;
 
     private void  PhoneBook(){
 
-        String namePhn=nameEditTexts.getText().toString();
-        String numberPhn=phoneEditTexts.getText().toString();
+        String namePhn=addCustomersBinding.nameEditText.getText().toString();
+        String numberPhn=addCustomersBinding.phoneEditText.getText().toString();
 
         if(TextUtils.isEmpty(namePhn)){
             Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_SHORT).show();

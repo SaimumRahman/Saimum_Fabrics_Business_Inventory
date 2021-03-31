@@ -24,6 +24,7 @@ import com.example.Business_Invebtory.ModalClasses.CustomerListModalClass;
 import com.example.Business_Invebtory.ModalClasses.MohajonModel;
 import com.example.groceryapplication.R;
 import com.example.Business_Invebtory.ViewHolder.CustomerViewHolder;
+import com.example.groceryapplication.databinding.ActivityCustomerDetailsBinding;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,29 +38,22 @@ import java.util.HashMap;
 
 public class Customer_Details extends AppCompatActivity {
 
-    private RecyclerView recyclerViewCustomerLists;
     RecyclerView.LayoutManager layoutManager;
     private DatabaseReference customerRef,customerDelRef,updateRef,mohajonRef,mohajonDelRef,mohajonUpdateRef;
     private String search_input;
-    private EditText search_input_text;
-    private Button search_button;
-    private CheckBox mohjonCheckBoxDetails;
-
-
- //   private CustomerListsAdapter customerListsAdapter;
+    ActivityCustomerDetailsBinding customerDetailsBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer__details);
 
-        search_input_text=findViewById(R.id.search_product_name);
-        search_button=findViewById(R.id.search_button);
-        recyclerViewCustomerLists=findViewById(R.id.recyclerViewCustomerList);
-        mohjonCheckBoxDetails=findViewById(R.id.checkboxMohajonAllDetails);
-        recyclerViewCustomerLists.setHasFixedSize(true);
+        customerDetailsBinding=ActivityCustomerDetailsBinding.inflate(getLayoutInflater());
+        View customerDetailsView=customerDetailsBinding.getRoot();
+        setContentView(customerDetailsView);
+
+        customerDetailsBinding.recyclerViewCustomerList.setHasFixedSize(true);
         layoutManager=new LinearLayoutManager(this);
-        recyclerViewCustomerLists.setLayoutManager(layoutManager);
+        customerDetailsBinding.recyclerViewCustomerList.setLayoutManager(layoutManager);
 
         customerRef=FirebaseDatabase.getInstance().getReference().child("Customer_Details");
         customerDelRef=FirebaseDatabase.getInstance().getReference().child("Customer_Details");
@@ -68,41 +62,28 @@ public class Customer_Details extends AppCompatActivity {
         mohajonDelRef=FirebaseDatabase.getInstance().getReference().child("Mohajon_Details");
         mohajonUpdateRef=FirebaseDatabase.getInstance().getReference().child("Mohajon_Details");
 
-       mohjonCheckBoxDetails.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-           @Override
-           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               if(!isChecked){
-                  onStart();
-               }
-               else {
-                  MojonDetails();
-               }
-           }
-       });
-
-        search_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                // Toast.makeText(getApplicationContext(),"searching",Toast.LENGTH_LONG).show();
-
-              if(!mohjonCheckBoxDetails.isChecked()){
-                  search_input=search_input_text.getText().toString();
-                  onStart();
-              }
-              else {
-                  search_input=search_input_text.getText().toString();
-                  MojonDetails();
-              }
-
-
+        customerDetailsBinding.checkboxMohajonAllDetails.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if(!isChecked){
+               onStart();
+            }
+            else {
+               MojonDetails();
             }
         });
 
+        customerDetailsBinding.searchButton.setOnClickListener(v -> {
 
-      //  customerListsAdapter=new CustomerListsAdapter(options);
-      //  recyclerViewCustomerLists.setAdapter(customerListsAdapter);
+          if(!customerDetailsBinding.checkboxMohajonAllDetails.isChecked()){
+              search_input=customerDetailsBinding.searchProductName.getText().toString();
+              onStart();
+          }
+          else {
+              search_input=customerDetailsBinding.searchProductName.getText().toString();
+              MojonDetails();
+          }
+
+        });
+
 
     }
 
@@ -135,34 +116,30 @@ public class Customer_Details extends AppCompatActivity {
                         }
                     });
 
-                    holder.deleteCustomerBtns.setOnClickListener(new View.OnClickListener() {
+                    holder.deleteCustomerBtns.setOnClickListener(v -> {
+                        CharSequence[] charSequenceBill =new CharSequence[]{
+                                "Yes","No"
+                        };
+                        AlertDialog.Builder alertsBill=new AlertDialog.Builder(Customer_Details.this);
+                        alertsBill.setTitle("DO YOU WANT TO DELETE THIS ENTRY ?");
+                        alertsBill.setItems(charSequenceBill, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                if(which==0){
 
-                        @Override
-                        public void onClick(View v) {
-                            CharSequence[] charSequenceBill =new CharSequence[]{
-                                    "Yes","No"
-                            };
-                            AlertDialog.Builder alertsBill=new AlertDialog.Builder(Customer_Details.this);
-                            alertsBill.setTitle("DO YOU WANT TO DELETE THIS ENTRY ?");
-                            alertsBill.setItems(charSequenceBill, new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    if(which==0){
+                                    customerDelRef.child(model.getPhone()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Toast.makeText(Customer_Details.this,"DELETED",Toast.LENGTH_LONG).show();
+                                        }
+                                    });
 
-                                        customerDelRef.child(model.getPhone()).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<Void> task) {
-                                                Toast.makeText(Customer_Details.this,"DELETED",Toast.LENGTH_LONG).show();
-                                            }
-                                        });
+                                }else if(which==1) {
 
-                                    }else if(which==1) {
-
-                                    }
                                 }
-                            });
-                            alertsBill.show();
-                        }
+                            }
+                        });
+                        alertsBill.show();
                     });
                     holder.editCustomerBtns.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -222,7 +199,7 @@ public class Customer_Details extends AppCompatActivity {
                     return holder;
                 }
             };
-            recyclerViewCustomerLists.setAdapter(adapter);
+        customerDetailsBinding.recyclerViewCustomerList.setAdapter(adapter);
             adapter.startListening();
         }
 
@@ -340,7 +317,7 @@ private void MojonDetails(){
             return holder;
         }
     };
-    recyclerViewCustomerLists.setAdapter(adapter);
+    customerDetailsBinding.recyclerViewCustomerList.setAdapter(adapter);
     adapter.startListening();
 
 
